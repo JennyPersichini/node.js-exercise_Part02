@@ -1,0 +1,18 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model.planets {
+    id                  int                     @id@default(autoincrement())
+    name                string                  @db.VarChar(255)
+    description         string?
+    diameter            int
+    modeloons           int
+    createdAt           DateTime                @default(now())
+    updateAt            DateTime                @updateAt
+}
